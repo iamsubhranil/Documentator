@@ -1,0 +1,8 @@
+// Inherited defs: return_type, method_name, params
+// To directly specify a word, place it between ""
+// _ indicates an optional field
+// If one field can contain multiple values, use | in definition
+// To specify any word can be used in definition, use any_word
+visibility=public|private|protected
+exception=any_word
+signature=_visibility _"static" return_type method_name "(" ")" _"throws" _exception "{"
