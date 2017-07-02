@@ -7,7 +7,10 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 /**
- * Created by subhranil on 2/7/17.
+ * Author : Subhranil Mukherjee
+ * Date : 2/7/17
+ * Time : 1:46 AM
+ * Project : Documentator
  */
 public class SignatureParser {
 

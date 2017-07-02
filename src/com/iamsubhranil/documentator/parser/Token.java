@@ -5,7 +5,10 @@ import java.util.Collections;
 import java.util.Properties;
 
 /**
- * Created by subhranil on 2/7/17.
+ * Author : Subhranil Mukherjee
+ * Date : 2/7/17
+ * Time : 1:47 AM
+ * Project : Documentator
  */
 public class Token {
 

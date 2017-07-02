@@ -12,7 +12,10 @@ import java.io.IOException;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Created by subhranil on 3/7/17.
+ * Author : Subhranil Mukherjee
+ * Date : 3/7/17
+ * Time : 1:46 AM
+ * Project : Documentator
  */
 public class SignatureTest {
 
