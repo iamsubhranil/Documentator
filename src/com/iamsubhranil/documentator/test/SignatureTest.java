@@ -20,14 +20,32 @@ import static org.junit.Assert.assertEquals;
 public class SignatureTest {
 
     @Test
-    public void testJava() throws IOException {
-        Signature signature = SignatureParser.loadSignature(Signature.class.getResource("signatures/java.signature").getFile());
-        System.out.println("Testing java..");
-        assertEquals("\"void main ( )\"", true, signature.isSignature("void main ( )"));
-        assertEquals("\"main ( )\"", false, signature.isSignature("main ( )"));
-        assertEquals("\"main()\"", true, signature.isSignature("main()"));
-        assertEquals("\"public ClassAbc main ( )", true, signature.isSignature("public ClassAbc main ( )"));
-        assertEquals("\"public public classAbc main ( )\"", false, signature.isSignature("public public classAbc main ( )"));
+    public void testJava() {
+        try {
+            Signature signature = SignatureParser.loadSignature(Signature.class.getResource("signatures/java.signature").getFile());
+            System.out.println("Testing java..");
+            assertEquals("\"void main ( )\"", true, signature.isSignature("void main ( )"));
+            assertEquals("\"main ( )\"", false, signature.isSignature("main ( )"));
+            assertEquals("\"main()\"", true, signature.isSignature("main()"));
+            assertEquals("\"public ClassAbc main ( String [] args )", true, signature.isSignature("public ClassAbc main ( String [] args )"));
+            assertEquals("\"public public classAbc main ( )\"", false, signature.isSignature("public public classAbc main ( )"));
+            assertEquals("\"public ClassAbc main ( String [] args \"", false, signature.isSignature("public ClassAbc main ( String [] args "));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void testC() {
+        try {
+            System.out.println("Testing C..");
+            Signature signature = SignatureParser.loadSignature(Signature.class.getResource("signatures/c.signature").getFile());
+            assertEquals("int main ( char * argv, int argc )", true, signature.isSignature("int main ( char * argv, int argc )"));
+            assertEquals("int main ( )", true, signature.isSignature("int main ( )"));
+            assertEquals("int j = 5;", false, signature.isSignature("int j = 5;"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void main(String[] args) {

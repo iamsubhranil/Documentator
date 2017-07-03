@@ -5,4 +5,6 @@
 // To specify any word can be used in definition, use any_word
 visibility=public|private|protected
 exception=any_word
-signature=_visibility _"static" return_type method_name "(" ")" _"throws" _exception "{"
+param_start=(
+param_end=)
+signature=_visibility _"static" return_type method_name param_start params param_end _"throws" _exception "{"

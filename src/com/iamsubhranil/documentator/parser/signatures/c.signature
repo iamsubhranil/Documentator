@@ -1,1 +1,3 @@
-signature=_"static" return_type method_name "(" ")"
+param_start=(
+param_end=)
+signature=_"static" return_type method_name param_start params param_end

@@ -30,9 +30,12 @@ public class SignatureParser {
             Signature signature = new Signature();
             String[] tokens = signatureString.split(" ");
             for (String token : tokens) {
+                if (token.equals("params"))
+                    continue;
                 Token t = new Token(token, properties);
                 signature.addToken(t);
             }
+            signature.validate();
             signatures.add(signature);
             return signature;
         }
